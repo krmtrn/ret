@@ -1,0 +1,150 @@
+{
+  "_aciklama": "Migros içecek trend taksonomisi. 'kelimeler' alanındaki ifadeler; ürün adı + marka + içindekiler metninde, Türkçe-duyarlı normalizasyon (I/ı/İ/i + diyakritik katlama) sonrası kelime sınırıyla aranır. 'ozel' alanı hesaplanan kuralları belirtir: glp1 (protein+lif kombinasyonu), kalsiyum_d (kalsiyum+D vitamini kombinasyonu), temiz_etiket (içerik sayısı <= ayar + katkı göstergesi yok). C vitamini bilinçli olarak bagisiklik kelimelerinde yoktur; tek başına tetiklememesi için D vitamini/çinko/mürver/ekinezya anahtar kelimeleri yeterlidir.",
+  "_geleneksel_notu": "temiz-etiket hariç hiçbir trendle eşleşmeyen ürünler 'Geleneksel (Kategori Dışı)' düğümüne düşer ve trend istatistiklerine dahil edilmez.",
+  "kaynaklar": ["Mintel Global Food & Drink Trends", "FMCG Gurus", "Innova Market Insights", "Whole Foods Trend Predictions", "BeverageDigest/FoodBev"],
+  "ayarlar": {
+    "varsayilan_min_matches": 1,
+    "temiz_etiket_max_icerik": 5,
+    "grup_esigi": 40,
+    "ozel_ayarlar": {
+      "glp1_protein_trend": "protein",
+      "glp1_lif_kelimeler": ["lif", "lifi", "inülin", "beta glukan", "polidekstroz", "fruktooligosakkarit", "galaktooligosakkarit", "glukomannan"],
+      "kalsiyum_kelimeler": ["kalsiyum"],
+      "kalsiyum_d_kelimeler": ["d vitamini", "vitamin d", "d3", "kolekalsiferol"],
+      "temiz_etiket_katki_kelimeler": ["koruyucu", "tatlandırıcı", "stabilizatör", "aroma", "aromalı", "aroma verici", "renk verici"],
+      "temiz_etiket_e_no_deseni": "(?<![a-z0-9])e\\d{3}(?![a-z0-9])"
+    }
+  },
+  "trendler": [
+    {
+      "id": "gut-health",
+      "ad": "Gut Health",
+      "parent": null,
+      "grup": true,
+      "kelimeler": [],
+      "kaynak": ["Mintel Global Food & Drink Trends", "FMCG Gurus"]
+    },
+    {
+      "id": "prebiyotik",
+      "ad": "Prebiyotik",
+      "parent": "gut-health",
+      "kelimeler": ["inülin", "hindiba", "fruktooligosakkarit", "fos", "galaktooligosakkarit", "gos", "polidekstroz", "ksilooligosakkarit", "mısır lifi", "akasya lifi", "akasya", "prebiyotik"],
+      "kaynak": ["Mintel Global Food & Drink Trends", "FMCG Gurus"]
+    },
+    {
+      "id": "probiyotik-postbiyotik",
+      "ad": "Probiyotik & Postbiyotik",
+      "parent": "gut-health",
+      "kelimeler": ["kombucha", "kefir", "canlı kültür", "bacillus coagulans", "lactobacillus", "bifidobacterium", "probiyotik", "postbiyotik", "butirik asit"],
+      "kaynak": ["Mintel Global Food & Drink Trends", "FMCG Gurus"]
+    },
+    {
+      "id": "anti-stres",
+      "ad": "Anti-Stres / Rahatlama",
+      "parent": null,
+      "kelimeler": ["l teanin", "teanin", "gaba", "papatya", "melisa", "lavanta", "passiflora"],
+      "kaynak": ["FMCG Gurus", "Mintel Global Food & Drink Trends"]
+    },
+    {
+      "id": "adaptojen",
+      "ad": "Adaptojen",
+      "parent": null,
+      "kelimeler": ["ashwagandha", "ginseng", "rhodiola", "maca", "reishi", "adaptojen"],
+      "kaynak": ["FMCG Gurus", "Innova Market Insights"]
+    },
+    {
+      "id": "nootropik",
+      "ad": "Nootropik / Zihin",
+      "parent": null,
+      "kelimeler": ["aslan pençesi", "aslan yelesi", "lion s mane", "ginkgo", "kolin", "sitikolin", "citicoline", "nootropik"],
+      "kaynak": ["FMCG Gurus", "Mintel Global Food & Drink Trends"]
+    },
+    {
+      "id": "dogal-enerji",
+      "ad": "Doğal Enerji / Temiz Kafein",
+      "parent": null,
+      "kelimeler": ["yeşil kahve", "guarana", "yerba mate", "mate", "b3", "b5", "b6", "b12", "niyasin", "pantotenik"],
+      "kaynak": ["BeverageDigest/FoodBev", "Innova Market Insights"]
+    },
+    {
+      "id": "elektrolit",
+      "ad": "Elektrolit / Hidrasyon",
+      "parent": null,
+      "kelimeler": ["magnezyum", "potasyum", "hindistan cevizi suyu", "kokos suyu", "elektrolit"],
+      "kaynak": ["FMCG Gurus", "Innova Market Insights"]
+    },
+    {
+      "id": "botanik",
+      "ad": "Botanik / Bitkisel",
+      "parent": null,
+      "kelimeler": ["zencefil", "zerdeçal", "kurkumin", "matcha", "hibiskus", "rooibos", "aloe vera", "ada çayı"],
+      "kaynak": ["Innova Market Insights", "Whole Foods Trend Predictions"]
+    },
+    {
+      "id": "bitkisel-sut",
+      "ad": "Bitkisel Süt Alternatifi",
+      "parent": null,
+      "kelimeler": ["yulaf", "badem", "fındık", "soya", "pirinç", "kenevir", "hemp", "hindistan cevizi sütü", "kokos sütü"],
+      "kaynak": ["Innova Market Insights", "Mintel Global Food & Drink Trends"]
+    },
+    {
+      "id": "protein",
+      "ad": "Protein Zenginleştirme",
+      "parent": null,
+      "kelimeler": ["whey", "süt proteini", "bezelye proteini", "kazein", "kazeinat", "izole protein", "protein izolatı", "hidrolize protein", "protein"],
+      "kaynak": ["FMCG Gurus", "Innova Market Insights"]
+    },
+    {
+      "id": "glp1",
+      "ad": "GLP-1 Dostu / Uzun Tokluk",
+      "parent": null,
+      "ozel": "glp1",
+      "kelimeler": ["beta glukan", "pikolinat krom"],
+      "kaynak": ["FMCG Gurus", "Mintel Global Food & Drink Trends"]
+    },
+    {
+      "id": "kollajen",
+      "ad": "Kollajen / Güzellik",
+      "parent": null,
+      "kelimeler": ["kollajen", "hyaluronik asit", "biotin"],
+      "kaynak": ["Innova Market Insights", "Whole Foods Trend Predictions"]
+    },
+    {
+      "id": "antioksidan",
+      "ad": "Antioksidan / Sağlıklı Yaşlanma",
+      "parent": null,
+      "kelimeler": ["açai", "acai", "goji", "yeşil çay ekstraktı", "egcg", "resveratrol", "karotenoid", "likopen", "nikotinamid ribozit", "nikotinamid"],
+      "kaynak": ["Whole Foods Trend Predictions", "Innova Market Insights"]
+    },
+    {
+      "id": "bagisiklik",
+      "ad": "Bağışıklık",
+      "parent": null,
+      "kelimeler": ["d vitamini", "vitamin d", "d3", "kolekalsiferol", "çinko", "zink", "ekinezya", "ekinasya", "mürver", "elderberry"],
+      "kaynak": ["FMCG Gurus", "Mintel Global Food & Drink Trends"]
+    },
+    {
+      "id": "kadin-sagligi",
+      "ad": "Kadın Sağlığı",
+      "parent": null,
+      "ozel": "kalsiyum_d",
+      "kelimeler": ["folik asit", "demir", "soya izoflavonu", "izoflavon", "cranberry", "turna"],
+      "kaynak": ["FMCG Gurus"]
+    },
+    {
+      "id": "seker-azaltma",
+      "ad": "Şeker Azaltma / Şekersiz",
+      "parent": null,
+      "kelimeler": ["stevia", "rebaudiyozid", "sukraloz", "eritritol", "ksilitol", "alluloz", "aspartam", "asesulfam", "siklamat", "şeker ilavesiz", "şeker ilavesi", "ilave şeker", "şeker içermez", "şekersiz"],
+      "kaynak": ["Mintel Global Food & Drink Trends", "BeverageDigest/FoodBev"]
+    },
+    {
+      "id": "temiz-etiket",
+      "ad": "Temiz Etiket / Minimum İçerik",
+      "parent": null,
+      "ozel": "temiz_etiket",
+      "kelimeler": [],
+      "kaynak": ["Innova Market Insights", "Whole Foods Trend Predictions"]
+    }
+  ]
+}
